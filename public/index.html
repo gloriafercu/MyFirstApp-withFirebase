@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+	<title>My first App with Firebase</title>
+</head>
+
+<body class="site">
+	<header class="header">
+		<button class="btn sign-in" type="button" name="button">Login</button>
+		<button class="btn sign-out" type="button" name="button">Login</button>
+	</header>
+
+	<main class="wrapper">
+		<h1 class="message">¡Bienvenido a My App!</h1>
+	</main>
+
+	<footer class="footer">
+		<p>&copy; MyFirstApp-withFirebase</p>
+		<p>Gloria Fernández</p>
+	</footer>
+
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyDrT82YhC2QsSnsnGU3G5FC4aNHOzj4Ve8",
+			authDomain: "myfirstapp-withfirebase.firebaseapp.com",
+			databaseURL: "https://myfirstapp-withfirebase.firebaseio.com",
+			projectId: "myfirstapp-withfirebase",
+			storageBucket: "",
+			messagingSenderId: "865742242873"
+		};
+		firebase.initializeApp(config);
+	</script>
+
+	<script src="src/main.js" charset="utf-8"></script>
+
+</body>
+
+</html>
