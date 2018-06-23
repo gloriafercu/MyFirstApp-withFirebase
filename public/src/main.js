@@ -10,17 +10,16 @@ function application() {
 	var btnSignin;
 	var btnSignout;
 	var signinContainer;
+	var provider;
 	var userInfo;
 	var user;
 
 	function googleSignin() {
-		var provider = new firebase.auth.GoogleAuthProvider();
 		firebase.auth()
 			.signInWithPopup(provider)
 			.then(function(result) {
 				var token = result.credential.accessToken;
 				user = result.user;
-				resetLogin();
 				printInfoWhenUserLogin();
 				console.log('Token: ', token);
 				console.log('User: ', user);
@@ -35,6 +34,19 @@ function application() {
 			});
 	}
 
+	function subscribeAuthStateChanged(onLogIn, onLogOut) {
+		firebase.auth().onAuthStateChanged(function(firebaseUser) {
+			if (firebaseUser) {
+				console.log('usuario está logueado');
+				console.log('firebaseUser ', firebaseUser);
+				onLogIn();
+			} else {
+				console.log('no logueado');
+				onLogOut();
+			}
+		});
+	}
+
 	function printInfoWhenUserLogin() {
 		var userImage = document.querySelector('.user-image');
 		var userName = document.querySelector('.user-name');
@@ -43,31 +55,72 @@ function application() {
 		userName.innerHTML = user.displayName;
 	}
 
+	function onLogIn() {
+		createButtonSignOut();
+		renderInfoUserInLogin();
+	}
+
+	function onLogOut() {
+		removeButtonSignOut();
+		removeInfoUserInLogin();
+	}
+
+	function createButtonSignOut() {
+		btnSignout.classList.remove('hidden');
+		signinContainer.classList.add('hidden');
+	}
+
+	function removeButtonSignOut() {
+		btnSignout.classList.add('hidden');
+		signinContainer.classList.remove('hidden');
+	}
+
+	function renderInfoUserInLogin() {
+		userInfo.classList.remove('hidden');
+	}
+
+	function removeInfoUserInLogin() {
+		userInfo.classList.add('hidden');
+	}
+
 	function googleSignout() {
 		firebase.auth().signOut()
 			.then(function() {
-				resetLogin();
 				console.log('Signout Succesfull!!');
 			}, function(error) {
 				console.log('Signout Failed!!');
 			});
 	}
 
-	function resetLogin() {
-		signinContainer.classList.toggle('hidden');
-		userInfo.classList.toggle('hidden');
-		btnSignout.classList.toggle('hidden');
-	}
+	// function saveDataUsersInBbdd() {
+	// 	firebase.database().ref('users/' + userId)
+	// 		.set({
+	// 			username: user.display,
+	// 			email: user.email,
+	// 			profile_picture: user.photoURL
+	// 		})
+	// }
+
+
+
+
+
 
 	function start() {
+		provider = new firebase.auth.GoogleAuthProvider();
 		signinContainer = document.querySelector('.signin-container');
 		userInfo = document.querySelector('.user-info');
 		btnSignin = document.querySelector('.sign-in');
 		btnSignout = document.querySelector('.sign-out');
 		btnSignin.addEventListener('click', googleSignin);
+		subscribeAuthStateChanged(onLogIn, onLogOut);
 		btnSignout.addEventListener('click', googleSignout);
 	}
 	return {
 		start: start
 	}
 }
+
+window.onload = function() {
+	application().start();
+};
