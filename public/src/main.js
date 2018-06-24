@@ -7,6 +7,7 @@
 
 
 function application() {
+	var btnSave;
 	var btnSignin;
 	var btnSignout;
 	var signinContainer;
@@ -19,10 +20,9 @@ function application() {
 			.signInWithPopup(provider)
 			.then(function(result) {
 				var token = result.credential.accessToken;
-				user = result.user;
-				printInfoWhenUserLogin();
 				console.log('Token: ', token);
-				console.log('User: ', user);
+				// user = result.user;
+				// console.log('User: ', user);
 
 			}).catch(function(error) {
 				var errorCode = error.code;
@@ -35,19 +35,19 @@ function application() {
 	}
 
 	function subscribeAuthStateChanged(onLogIn, onLogOut) {
-		firebase.auth().onAuthStateChanged(function(firebaseUser) {
-			if (firebaseUser) {
-				console.log('usuario está logueado');
-				console.log('firebaseUser ', firebaseUser);
-				onLogIn();
+		firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+				console.log('El usuario está logueado');
+				console.log('User: ', user);
+				onLogIn(user);
 			} else {
-				console.log('no logueado');
-				onLogOut();
+				console.log('El usuario no está logueado');
+				onLogOut(user);
 			}
 		});
 	}
 
-	function printInfoWhenUserLogin() {
+	function renderInfoWhenUserLogin(user) {
 		var userImage = document.querySelector('.user-image');
 		var userName = document.querySelector('.user-name');
 		var imageContent = '<img class="avatar" src="' + user.photoURL + '" alt="' + user.displayName + '">';
@@ -55,14 +55,16 @@ function application() {
 		userName.innerHTML = user.displayName;
 	}
 
-	function onLogIn() {
+	function onLogIn(user) {
 		createButtonSignOut();
-		renderInfoUserInLogin();
+		createInfoUserContainer();
+		renderInfoWhenUserLogin(user);
+
 	}
 
-	function onLogOut() {
+	function onLogOut(user) {
 		removeButtonSignOut();
-		removeInfoUserInLogin();
+		removeInfoUserContainer();
 	}
 
 	function createButtonSignOut() {
@@ -75,11 +77,11 @@ function application() {
 		signinContainer.classList.remove('hidden');
 	}
 
-	function renderInfoUserInLogin() {
+	function createInfoUserContainer() {
 		userInfo.classList.remove('hidden');
 	}
 
-	function removeInfoUserInLogin() {
+	function removeInfoUserContainer() {
 		userInfo.classList.add('hidden');
 	}
 
@@ -92,19 +94,23 @@ function application() {
 			});
 	}
 
-	// function saveDataUsersInBbdd() {
-	// 	firebase.database().ref('users/' + userId)
-	// 		.set({
-	// 			username: user.display,
-	// 			email: user.email,
-	// 			profile_picture: user.photoURL
-	// 		})
-	// }
+	function saveDataUsersByLoginInBbd		console.log("Usuario guardado", user);
+		//Si existe el usuario
+			if (user) {
+				firebase.database().ref('users/'+user.uid )
+					.set({
+						uid: user.uid,
+						username: user.displayName,
+						email: user.email,
+						profile_picture: user.photoURL
+					});
+			}
+	});
 
 
 
 
-
+	}
 
 	function start() {
 		provider = new firebase.auth.GoogleAuthProvider();
@@ -112,10 +118,13 @@ function application() {
 		userInfo = document.querySelector('.user-info');
 		btnSignin = document.querySelector('.sign-in');
 		btnSignout = document.querySelector('.sign-out');
-		btnSignin.addEventListener('click', googleSignin);
+		btnSave = document.querySelector('.save');
 		subscribeAuthStateChanged(onLogIn, onLogOut);
+		btnSignin.addEventListener('click', googleSignin);
 		btnSignout.addEventListener('click', googleSignout);
+		btnSave.addEventListener('click', saveDataUsersByLoginInBbdd);
 	}
+
 	return {
 		start: start
 	}
