@@ -96,19 +96,19 @@ function application() {
 
 	function saveDataUsersByLoginInBbdd() {
 
-	firebase.auth().onAuthStateChanged(function(user) {
-		console.log("Usuario guardado", user);
-		//Si existe el usuario
-			if (user) {
-				firebase.database().ref('users/'+user.uid )
-					.set({
-						uid: user.uid,
-						username: user.displayName,
-						email: user.email,
-						profile_picture: user.photoURL
-					});
-			}
-	});
+		firebase.auth().onAuthStateChanged(function(user) {
+			console.log("Usuario guardado", user);
+			//Si existe el usuario
+				if (user) {
+					firebase.database().ref('users/'+user.uid )
+						.set({
+							uid: user.uid,
+							username: user.displayName,
+							email: user.email,
+							profile_picture: user.photoURL
+						});
+				}
+		});
 
 
 
