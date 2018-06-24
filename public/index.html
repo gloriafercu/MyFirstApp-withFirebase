@@ -24,8 +24,18 @@
 	</header>
 
 	<main class="wrapper">
-		<h1 class="message">¡Bienvenido a My App!</h1>
-		<button class="btn save" type="button" name="button">Guardar</button>
+		<div class="welcome">
+			<h1 class="message">¡Bienvenido a My App!</h1>
+			<form class="form" action="/" method="post">
+				<label class="label" for="author-game">Nombre del juego</label>
+				<input class="input author-game" id="author-game" type="text">
+				<label class="label" for="name-game">Autor</label>
+				<input class="input name-game" id="name-game" type="text">
+				<label class="label" for="year-game">Año de publicación</label>
+				<input class="input year-game" id="year-game" type="text">
+				<button class="btn save" type="button" name="button">Guardar</button>
+			</form>
+		</div>
 	</main>
 
 	<footer class="footer">

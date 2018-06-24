@@ -1,11 +1,3 @@
-/* LOGIN WITH GOOGLE ACCOUNT
-		-	Con var provider se crea una instancia del objeto del proveedor de Google.
-		- con signInWithPopup estás pidiendo a los usuarios que accedan con su cuenta de Google a través de una ventana emergente (también se puede redireccionarlos a una página de acceso con signInWithRedirect, muy útil en móviles).
-		- Con var token obtienes el token de acceso de google y así puedes acceder a Google API.
-		- Con var user obtienes la información del usuario cuando hace login.
-*/
-
-
 function application() {
 	var btnSave;
 	var btnSignin;
@@ -14,8 +6,6 @@ function application() {
 	var provider;
 	var userInfo;
 	var user;
-	var welcome;
-
 
 	function googleSignin() {
 		firebase.auth()
@@ -61,14 +51,12 @@ function application() {
 		createButtonSignOut();
 		createInfoUserContainer();
 		renderInfoWhenUserLogin(user);
-		createWelcome();
-		saveDataUsersByLoginInBbdd(user);
+
 	}
 
 	function onLogOut(user) {
 		removeButtonSignOut();
 		removeInfoUserContainer();
-		removeWelcome();
 	}
 
 	function createButtonSignOut() {
@@ -89,14 +77,6 @@ function application() {
 		userInfo.classList.add('hidden');
 	}
 
-	function createWelcome() {
-		welcome.classList.remove('hidden');
-	}
-
-	function removeWelcome() {
-		welcome.classList.add('hidden');
-	}
-
 	function googleSignout() {
 		firebase.auth().signOut()
 			.then(function() {
@@ -106,36 +86,38 @@ function application() {
 			});
 	}
 
-	function saveDataUsersByLoginInBbdd(userLogin) {
-		var userApp = {
-			uid: userLogin.uid,
-			username: userLogin.displayName,
-			email: userLogin.email,
-			profile_picture: userLogin.photoURL
-		}
-		firebase.database().ref('users/'+ userLogin.uid)
-			.set(userApp);
+	function saveDataUsersByLoginInBbdd() {
 
-		console.log("Usuario guardado", userLogin);
+		firebase.auth().onAuthStateChanged(function(user) {
+			console.log("Usuario guardado", user);
+			//Si existe el usuario
+				if (user) {
+					firebase.database().ref('users/'+user.uid )
+						.set({
+							uid: user.uid,
+							username: user.displayName,
+							email: user.email,
+							profile_picture: user.photoURL
+						});
+				}
+		});
+
+
+
+
 	}
-
-	function saveGamesBbdd() {
-
-	}
-
 
 	function start() {
 		provider = new firebase.auth.GoogleAuthProvider();
 		signinContainer = document.querySelector('.signin-container');
 		userInfo = document.querySelector('.user-info');
-		btnSave = document.querySelector('.save');
 		btnSignin = document.querySelector('.sign-in');
 		btnSignout = document.querySelector('.sign-out');
-		welcome = document.querySelector('.welcome');
+		btnSave = document.querySelector('.save');
 		subscribeAuthStateChanged(onLogIn, onLogOut);
 		btnSignin.addEventListener('click', googleSignin);
 		btnSignout.addEventListener('click', googleSignout);
-		btnSave.addEventListener('click', saveGamesBbdd);
+		btnSave.addEventListener('click', saveDataUsersByLoginInBbdd);
 	}
 
 	return {
