@@ -94,7 +94,10 @@ function application() {
 			});
 	}
 
-	function saveDataUsersByLoginInBbd		console.log("Usuario guardado", user);
+	function saveDataUsersByLoginInBbdd() {
+
+	firebase.auth().onAuthStateChanged(function(user) {
+		console.log("Usuario guardado", user);
 		//Si existe el usuario
 			if (user) {
 				firebase.database().ref('users/'+user.uid )
