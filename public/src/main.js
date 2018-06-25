@@ -173,34 +173,31 @@ function application() {
 	function renderDataGames() {
 		firebase.database().ref('juegosDeMesa')
 			.on('child_added', function(snapshot) {
-				console.log('elemento', snapshot.val());
-				console.log('key ', snapshot.key());
 				data = snapshot.val();
-				// idKey = snapshot.key();
+				idKey = snapshot.key;
 				var gameContainer = document.createElement('article');
 				gameContainer.className = 'article';
-				gameContainer.setAttribute('id', snapshot.key());
-
+				gameContainer.setAttribute('id', snapshot.key);
 				gameContainer.innerHTML = HTMLgame(data);
 				listGames.appendChild(gameContainer);
 			});
-			//updateDataGames();
+			updateDataGames();
 	}
 
-	// function updateDataGames() {
-	// 	firebase.database().ref('juegosDeMesa')
-	// 		.on('child_changed', function(snapshot) {
-	// 			var element = document.getElementById(idKey);
-	// 			element.innerHTML = HTMLgame(snapshot.val());
-	// 		});
-	//
-	// }
-	//
-	// function HTMLgame(data) {
-	// 	var content = '<h2>' + data.name + '</h2>';
-	// 	content += '<p>(' + data.year + ')  ' + data.author + '</p>';
-	// 	return content;
-	// }
+	function updateDataGames() {
+		firebase.database().ref('juegosDeMesa')
+			.on('child_changed', function(snapshot) {
+				var element = document.getElementById(idKey);
+				element.innerHTML = HTMLgame(snapshot.val());
+			});
+// se me repiten los items(???)
+	}
+
+	function HTMLgame(data) {
+		var content = '<h2>' + data.name + '</h2>';
+		content += '<p>(' + data.year + ')  ' + data.author + '</p>';
+		return content;
+	}
 
 
 	function start() {
