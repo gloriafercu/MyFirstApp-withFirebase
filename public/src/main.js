@@ -7,9 +7,13 @@
 
 
 function application() {
+	'use strict';
+
+	var btnNextGame;
 	var btnSave;
 	var btnSignin;
 	var btnSignout;
+	var listGames;
 	var signinContainer;
 	var provider;
 	var userInfo;
@@ -62,13 +66,16 @@ function application() {
 		createInfoUserContainer();
 		renderInfoWhenUserLogin(user);
 		createWelcome();
+		removeListGames();
 		saveDataUsersByLoginInBbdd(user);
+
 	}
 
 	function onLogOut(user) {
 		removeButtonSignOut();
 		removeInfoUserContainer();
 		removeWelcome();
+		removeListGames();
 	}
 
 	function createButtonSignOut() {
@@ -96,6 +103,32 @@ function application() {
 	function removeWelcome() {
 		welcome.classList.add('hidden');
 	}
+	function createListGames() {
+
+		listGames.classList.remove('hidden');
+	}
+
+	function removeListGames() {
+		listGames.classList.add('hidden');
+	}
+
+	function resetDataForm() {
+		console.log('me reseteo');
+		document.querySelector('.form').reset();
+	}
+
+	function onSaveGames() {
+		saveGamesBbdd();
+		resetDataForm();
+		removeWelcome();
+		createListGames();
+
+	}
+
+	function introduceMoreGames() {
+		removeListGames();
+		createWelcome();
+	}
 
 	function googleSignout() {
 		firebase.auth().signOut()
@@ -120,22 +153,52 @@ function application() {
 	}
 
 	function saveGamesBbdd() {
+		var nameGame = document.querySelector('.name-game').value;
+		var authorGame = document.querySelector('.author-game').value;
+		var yearGame = document.querySelector('.year-game').value;
+		var dataGame = {
+			name: nameGame,
+			author: authorGame,
+			year: yearGame
+		}
+		firebase.database().ref('juegosDeMesa')
+			.push(dataGame);
+
+		// renderDataGames();
 
 	}
+
+	// function renderDataGames() {
+	// 	firebase.database().ref('juegosDeMesa')
+	// 		.on('value', function(snapshot) {
+	// 			var data = snapshot.val();
+	// 		});
+	// 	var listGames = document.querySelector('.list-games');
+	// 	var item1 = document.createElement('li');
+	// 	var item2 = document.createElement('li');
+	// 	var item3 = document.createElement('li');
+	// 	item1.textContent = data.name;
+	// 	item2.textContent = data.author;
+	// 	item3.textContent = data.year;
+	//
+	// }
 
 
 	function start() {
 		provider = new firebase.auth.GoogleAuthProvider();
 		signinContainer = document.querySelector('.signin-container');
 		userInfo = document.querySelector('.user-info');
+		btnNextGame = document.querySelector('.next-game');
 		btnSave = document.querySelector('.save');
 		btnSignin = document.querySelector('.sign-in');
 		btnSignout = document.querySelector('.sign-out');
 		welcome = document.querySelector('.welcome');
+		listGames = document.querySelector('.list-games');
 		subscribeAuthStateChanged(onLogIn, onLogOut);
 		btnSignin.addEventListener('click', googleSignin);
 		btnSignout.addEventListener('click', googleSignout);
-		btnSave.addEventListener('click', saveGamesBbdd);
+		btnSave.addEventListener('click', onSaveGames);
+		btnNextGame.addEventListener('click', introduceMoreGames);
 	}
 
 	return {

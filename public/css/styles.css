@@ -59,9 +59,10 @@
 	color: #fff;
 	border: none;
 	border-radius: 3px;
+	cursor: pointer;
 }
 .save {
-	margin-top: 20px;
+	margin: 20px 0;
 }
 .user-info {
 	display: flex;

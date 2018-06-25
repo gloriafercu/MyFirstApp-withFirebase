@@ -1,182 +1,41 @@
-[debug] [2018-06-24T10:25:19.037Z] ----------------------------------------------------------------------
-[debug] [2018-06-24T10:25:19.038Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
-[debug] [2018-06-24T10:25:19.039Z] CLI Version:   3.18.6
-[debug] [2018-06-24T10:25:19.039Z] Platform:      darwin
-[debug] [2018-06-24T10:25:19.039Z] Node Version:  v8.11.2
-[debug] [2018-06-24T10:25:19.039Z] Time:          Sun Jun 24 2018 12:25:19 GMT+0200 (CEST)
-[debug] [2018-06-24T10:25:19.039Z] ----------------------------------------------------------------------
+[debug] [2018-06-24T23:45:59.424Z] ----------------------------------------------------------------------
+[debug] [2018-06-24T23:45:59.426Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2018-06-24T23:45:59.426Z] CLI Version:   3.18.6
+[debug] [2018-06-24T23:45:59.426Z] Platform:      darwin
+[debug] [2018-06-24T23:45:59.426Z] Node Version:  v8.11.2
+[debug] [2018-06-24T23:45:59.426Z] Time:          Mon Jun 25 2018 01:45:59 GMT+0200 (CEST)
+[debug] [2018-06-24T23:45:59.426Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-06-24T10:25:19.047Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-06-24T10:25:19.047Z] > authorizing via signed-in user
-[debug] [2018-06-24T10:25:19.049Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2018-06-24T10:25:19.049Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- { refresh_token: '1/EqHFWenWhvvmVNDyxIRTD1OFr0-YIBBhwrO84W9-F-Wsmo_X7_7uNZf8e9tFzAae',
-  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
-  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
-  grant_type: 'refresh_token',
-  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Sun Jun 24 2018 12:25:19 GMT+0200 (CEST)
-[debug] [2018-06-24T10:25:19.252Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T10:25:19.259Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/myfirstapp-withfirebase  
+[debug] [2018-06-24T23:45:59.434Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-24T23:45:59.434Z] > authorizing via signed-in user
+[debug] [2018-06-24T23:45:59.436Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/myfirstapp-withfirebase  
   
- Sun Jun 24 2018 12:25:19 GMT+0200 (CEST)
-[debug] [2018-06-24T10:25:20.108Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T10:25:20.109Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/myfirstapp-withfirebase/tokens  
+ Mon Jun 25 2018 01:45:59 GMT+0200 (CEST)
+[debug] [2018-06-24T23:46:00.386Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-24T23:46:00.387Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/myfirstapp-withfirebase/tokens  
   
- Sun Jun 24 2018 12:25:20 GMT+0200 (CEST)
-[debug] [2018-06-24T10:25:20.863Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T10:25:20.864Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/myfirstapp-withfirebase  
+ Mon Jun 25 2018 01:46:00 GMT+0200 (CEST)
+[debug] [2018-06-24T23:46:01.273Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-24T23:46:01.274Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/myfirstapp-withfirebase  
   
- Sun Jun 24 2018 12:25:20 GMT+0200 (CEST)
-[debug] [2018-06-24T10:25:21.707Z] <<< HTTP RESPONSE 200
+ Mon Jun 25 2018 01:46:01 GMT+0200 (CEST)
+[debug] [2018-06-24T23:46:02.060Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/gloriafercu/Documents/KAIROS/Proyectos-Kairos/MyFirstApp-withFirebase'...
 [info] 
 [info] i  functions: Preparing to emulate functions.
-[debug] [2018-06-24T10:25:22.110Z] Fetching environment
-[debug] [2018-06-24T10:25:22.112Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/865742242873:getServerAppConfig  
+[debug] [2018-06-24T23:46:02.431Z] Fetching environment
+[debug] [2018-06-24T23:46:02.433Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/865742242873:getServerAppConfig  
   
- Sun Jun 24 2018 12:25:22 GMT+0200 (CEST)
-[debug] [2018-06-24T10:25:22.112Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/865742242873/clients/_:getWebAppConfig  
+ Mon Jun 25 2018 01:46:02 GMT+0200 (CEST)
+[debug] [2018-06-24T23:46:02.433Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/865742242873/clients/_:getWebAppConfig  
   
- Sun Jun 24 2018 12:25:22 GMT+0200 (CEST)
-[debug] [2018-06-24T10:25:22.605Z] <<< HTTP RESPONSE 200
+ Mon Jun 25 2018 01:46:02 GMT+0200 (CEST)
+[debug] [2018-06-24T23:46:03.017Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-24T23:46:03.028Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-24T23:46:03.028Z] Starting @google-cloud/functions-emulator
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
 
-[debug] [2018-06-24T10:25:22.627Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T10:25:22.628Z] Starting @google-cloud/functions-emulator
-[debug] [2018-06-24T10:25:24.224Z] Parsing function triggers
-[info] i  functions: No HTTPS functions found. Use firebase functions:shell if you would like to emulate other types of functions.
-[debug] [2018-06-24T10:59:33.863Z] ----------------------------------------------------------------------
-[debug] [2018-06-24T10:59:33.865Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
-[debug] [2018-06-24T10:59:33.865Z] CLI Version:   3.18.6
-[debug] [2018-06-24T10:59:33.865Z] Platform:      darwin
-[debug] [2018-06-24T10:59:33.865Z] Node Version:  v8.11.2
-[debug] [2018-06-24T10:59:33.865Z] Time:          Sun Jun 24 2018 12:59:33 GMT+0200 (CEST)
-[debug] [2018-06-24T10:59:33.865Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2018-06-24T10:59:33.873Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-06-24T10:59:33.873Z] > authorizing via signed-in user
-[debug] [2018-06-24T10:59:33.875Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/myfirstapp-withfirebase  
-  
- Sun Jun 24 2018 12:59:33 GMT+0200 (CEST)
-[debug] [2018-06-24T10:59:34.620Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T10:59:34.620Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/myfirstapp-withfirebase/tokens  
-  
- Sun Jun 24 2018 12:59:34 GMT+0200 (CEST)
-[debug] [2018-06-24T10:59:35.514Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T10:59:35.515Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/myfirstapp-withfirebase  
-  
- Sun Jun 24 2018 12:59:35 GMT+0200 (CEST)
-[debug] [2018-06-24T10:59:36.434Z] <<< HTTP RESPONSE 200
-[info] 
-[info] === Serving from '/Users/gloriafercu/Documents/KAIROS/Proyectos-Kairos/MyFirstApp-withFirebase'...
-[info] 
-[info] i  functions: Preparing to emulate functions.
-[debug] [2018-06-24T10:59:36.813Z] Fetching environment
-[debug] [2018-06-24T10:59:36.815Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/865742242873:getServerAppConfig  
-  
- Sun Jun 24 2018 12:59:36 GMT+0200 (CEST)
-[debug] [2018-06-24T10:59:36.816Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/865742242873/clients/_:getWebAppConfig  
-  
- Sun Jun 24 2018 12:59:36 GMT+0200 (CEST)
-[debug] [2018-06-24T10:59:37.356Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T10:59:37.356Z] Starting @google-cloud/functions-emulator
-[debug] [2018-06-24T10:59:37.372Z] <<< HTTP RESPONSE 200
-[info] i  hosting: Serving hosting files from: public
-[info] ✔  hosting: Local server: http://localhost:5000
-
-[debug] [2018-06-24T10:59:38.407Z] Parsing function triggers
-[info] i  functions: No HTTPS functions found. Use firebase functions:shell if you would like to emulate other types of functions.
-[debug] [2018-06-24T15:38:36.266Z] ----------------------------------------------------------------------
-[debug] [2018-06-24T15:38:36.268Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
-[debug] [2018-06-24T15:38:36.268Z] CLI Version:   3.18.6
-[debug] [2018-06-24T15:38:36.268Z] Platform:      darwin
-[debug] [2018-06-24T15:38:36.268Z] Node Version:  v8.11.2
-[debug] [2018-06-24T15:38:36.268Z] Time:          Sun Jun 24 2018 17:38:36 GMT+0200 (CEST)
-[debug] [2018-06-24T15:38:36.268Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2018-06-24T15:38:36.279Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-06-24T15:38:36.279Z] > authorizing via signed-in user
-[debug] [2018-06-24T15:38:36.280Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2018-06-24T15:38:36.280Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- { refresh_token: '1/EqHFWenWhvvmVNDyxIRTD1OFr0-YIBBhwrO84W9-F-Wsmo_X7_7uNZf8e9tFzAae',
-  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
-  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
-  grant_type: 'refresh_token',
-  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Sun Jun 24 2018 17:38:36 GMT+0200 (CEST)
-[debug] [2018-06-24T15:38:36.467Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T15:38:36.475Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/myfirstapp-withfirebase  
-  
- Sun Jun 24 2018 17:38:36 GMT+0200 (CEST)
-[debug] [2018-06-24T15:38:37.140Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T15:38:37.140Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/myfirstapp-withfirebase/tokens  
-  
- Sun Jun 24 2018 17:38:37 GMT+0200 (CEST)
-[debug] [2018-06-24T15:38:37.919Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T15:38:37.920Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/myfirstapp-withfirebase  
-  
- Sun Jun 24 2018 17:38:37 GMT+0200 (CEST)
-[debug] [2018-06-24T15:38:38.751Z] <<< HTTP RESPONSE 200
-[info] 
-[info] === Serving from '/Users/gloriafercu/Documents/KAIROS/Proyectos-Kairos/MyFirstApp-withFirebase'...
-[info] 
-[info] i  functions: Preparing to emulate functions.
-[debug] [2018-06-24T15:38:39.131Z] Fetching environment
-[debug] [2018-06-24T15:38:39.133Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/865742242873:getServerAppConfig  
-  
- Sun Jun 24 2018 17:38:39 GMT+0200 (CEST)
-[debug] [2018-06-24T15:38:39.133Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/865742242873/clients/_:getWebAppConfig  
-  
- Sun Jun 24 2018 17:38:39 GMT+0200 (CEST)
-[debug] [2018-06-24T15:38:39.762Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T15:38:39.762Z] Starting @google-cloud/functions-emulator
-[debug] [2018-06-24T15:38:39.778Z] <<< HTTP RESPONSE 200
-[info] i  hosting: Serving hosting files from: public
-[info] ✔  hosting: Local server: http://localhost:5000
-
-[debug] [2018-06-24T15:38:40.812Z] Parsing function triggers
-[info] i  functions: No HTTPS functions found. Use firebase functions:shell if you would like to emulate other types of functions.
-[debug] [2018-06-24T15:39:08.406Z] ----------------------------------------------------------------------
-[debug] [2018-06-24T15:39:08.407Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
-[debug] [2018-06-24T15:39:08.407Z] CLI Version:   3.18.6
-[debug] [2018-06-24T15:39:08.408Z] Platform:      darwin
-[debug] [2018-06-24T15:39:08.408Z] Node Version:  v8.11.2
-[debug] [2018-06-24T15:39:08.408Z] Time:          Sun Jun 24 2018 17:39:08 GMT+0200 (CEST)
-[debug] [2018-06-24T15:39:08.408Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2018-06-24T15:39:08.416Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-06-24T15:39:08.416Z] > authorizing via signed-in user
-[debug] [2018-06-24T15:39:08.418Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/myfirstapp-withfirebase  
-  
- Sun Jun 24 2018 17:39:08 GMT+0200 (CEST)
-[debug] [2018-06-24T15:39:09.364Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T15:39:09.365Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/myfirstapp-withfirebase/tokens  
-  
- Sun Jun 24 2018 17:39:09 GMT+0200 (CEST)
-[debug] [2018-06-24T15:39:10.277Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T15:39:10.278Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/myfirstapp-withfirebase  
-  
- Sun Jun 24 2018 17:39:10 GMT+0200 (CEST)
-[debug] [2018-06-24T15:39:11.098Z] <<< HTTP RESPONSE 200
-[info] 
-[info] === Serving from '/Users/gloriafercu/Documents/KAIROS/Proyectos-Kairos/MyFirstApp-withFirebase'...
-[info] 
-[info] i  functions: Preparing to emulate functions.
-[debug] [2018-06-24T15:39:11.478Z] Fetching environment
-[debug] [2018-06-24T15:39:11.480Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/865742242873:getServerAppConfig  
-  
- Sun Jun 24 2018 17:39:11 GMT+0200 (CEST)
-[debug] [2018-06-24T15:39:11.481Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/865742242873/clients/_:getWebAppConfig  
-  
- Sun Jun 24 2018 17:39:11 GMT+0200 (CEST)
-[debug] [2018-06-24T15:39:12.018Z] <<< HTTP RESPONSE 200
-[debug] [2018-06-24T15:39:12.018Z] Starting @google-cloud/functions-emulator
-[debug] [2018-06-24T15:39:12.033Z] <<< HTTP RESPONSE 200
-[info] i  hosting: Serving hosting files from: public
-[info] ✔  hosting: Local server: http://localhost:5000
-
-[debug] [2018-06-24T15:39:13.066Z] Parsing function triggers
+[debug] [2018-06-24T23:46:04.065Z] Parsing function triggers
 [info] i  functions: No HTTPS functions found. Use firebase functions:shell if you would like to emulate other types of functions.
