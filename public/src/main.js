@@ -164,24 +164,22 @@ function application() {
 		firebase.database().ref('juegosDeMesa')
 			.push(dataGame);
 
-		// renderDataGames();
+		renderDataGames();
 
 	}
 
-	// function renderDataGames() {
-	// 	firebase.database().ref('juegosDeMesa')
-	// 		.on('value', function(snapshot) {
-	// 			var data = snapshot.val();
-	// 		});
-	// 	var listGames = document.querySelector('.list-games');
-	// 	var item1 = document.createElement('li');
-	// 	var item2 = document.createElement('li');
-	// 	var item3 = document.createElement('li');
-	// 	item1.textContent = data.name;
-	// 	item2.textContent = data.author;
-	// 	item3.textContent = data.year;
-	//
-	// }
+	function renderDataGames() {
+		firebase.database().ref('juegosDeMesa')
+			.on('child_added', function(snapshot) {
+				var data = snapshot.val();
+				var gameContainer = document.createElement('article');
+				gameContainer.className = 'article';
+				var content = '<h2>' + data.name + '</h2>';
+				content += '<p>(' + data.year + ')  ' + data.author + '</p>';
+				gameContainer.innerHTML = content;
+				listGames.appendChild(gameContainer);
+			});
+	}
 
 
 	function start() {

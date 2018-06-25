@@ -89,7 +89,25 @@
 	height: 30px;
 	margin-right: 20px;
 }
+.list-games {
+	position: relative
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	margin: 130px 50px;
+	width: 100%;
+}
+.article {
+	margin-bottom: 20px;
+	line-height: 40px;
 
+}
+.next-game {
+	position: absolute;
+	top: 130px;
+	right: 50px;
+}
 
 
 .footer {
