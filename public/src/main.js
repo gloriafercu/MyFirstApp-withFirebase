@@ -13,6 +13,8 @@ function application() {
 	var btnSave;
 	var btnSignin;
 	var btnSignout;
+	var data;
+	var idKey;
 	var listGames;
 	var signinContainer;
 	var provider;
@@ -171,15 +173,34 @@ function application() {
 	function renderDataGames() {
 		firebase.database().ref('juegosDeMesa')
 			.on('child_added', function(snapshot) {
-				var data = snapshot.val();
+				console.log('elemento', snapshot.val());
+				console.log('key ', snapshot.key());
+				data = snapshot.val();
+				// idKey = snapshot.key();
 				var gameContainer = document.createElement('article');
 				gameContainer.className = 'article';
-				var content = '<h2>' + data.name + '</h2>';
-				content += '<p>(' + data.year + ')  ' + data.author + '</p>';
-				gameContainer.innerHTML = content;
+				gameContainer.setAttribute('id', snapshot.key());
+
+				gameContainer.innerHTML = HTMLgame(data);
 				listGames.appendChild(gameContainer);
 			});
+			//updateDataGames();
 	}
+
+	// function updateDataGames() {
+	// 	firebase.database().ref('juegosDeMesa')
+	// 		.on('child_changed', function(snapshot) {
+	// 			var element = document.getElementById(idKey);
+	// 			element.innerHTML = HTMLgame(snapshot.val());
+	// 		});
+	//
+	// }
+	//
+	// function HTMLgame(data) {
+	// 	var content = '<h2>' + data.name + '</h2>';
+	// 	content += '<p>(' + data.year + ')  ' + data.author + '</p>';
+	// 	return content;
+	// }
 
 
 	function start() {
